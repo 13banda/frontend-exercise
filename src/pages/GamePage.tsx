@@ -22,7 +22,7 @@ export function GamePage({ gameState, onTileFlip, onGameEnd }: GamePageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-6">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">Memory Game</h1>
           <p className="text-gray-600">Find all the matching pairs!</p>
@@ -30,7 +30,7 @@ export function GamePage({ gameState, onTileFlip, onGameEnd }: GamePageProps) {
 
         <GameStats gameState={gameState} />
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 flex justify-center">
           <GameBoard gameState={gameState} onTileFlip={onTileFlip} />
         </div>
 
