@@ -39,11 +39,11 @@ export function GameTile({ tile, onFlip, disabled = false }: GameTileProps) {
             onFlip(tile.id);
         }
     };
-
+    const isUnTurned = !tile.isFlipped && !tile.isMatched && !disabled;
     return (
         <div
-            className="w-16 h-16 sm:w-20 sm:h-20 perspective-1000"
-            onClick={handleClick}
+            className={`w-16 h-16 sm:w-20 sm:h-20 perspective-1000 ${isUnTurned ? 'cursor-pointer' : 'cursor-not-allowed'
+                }`} onClick={handleClick}
         >
             <div
                 className={`relative w-full h-full rounded-xl transition-transform duration-500 transform`}
