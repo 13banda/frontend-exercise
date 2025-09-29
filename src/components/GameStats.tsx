@@ -27,38 +27,41 @@ export function GameStats({ gameState }: GameStatsProps) {
   const totalPairs = gameState.tiles.length / 2;
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 mb-8">
-      {/* Player */}
-      <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
-        <div className="text-center">
-          <div className="text-2xl font-bold text-white">{gameState.playerName}</div>
-          <div className="text-white/70 text-sm">Player</div>
+    <>
+      <div className='flex flex-wrap justify-center gap-4 mb-8'>
+        {/* Player */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-white">{gameState.playerName}</div>
+            <div className="text-white/70 text-sm">Player</div>
+          </div>
         </div>
       </div>
+      <div className="flex flex-wrap justify-center gap-4 mb-8">
+        {/* Timer */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-white">{formatTime(timeElapsed)}</div>
+            <div className="text-white/70 text-sm">Time</div>
+          </div>
+        </div>
 
-      {/* Timer */}
-      <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
-        <div className="text-center">
-          <div className="text-2xl font-bold text-white">{formatTime(timeElapsed)}</div>
-          <div className="text-white/70 text-sm">Time</div>
+        {/* Moves */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-white">{gameState.moves}</div>
+            <div className="text-white/70 text-sm">Moves</div>
+          </div>
         </div>
-      </div>
 
-      {/* Moves */}
-      <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
-        <div className="text-center">
-          <div className="text-2xl font-bold text-white">{gameState.moves}</div>
-          <div className="text-white/70 text-sm">Moves</div>
+        {/* Pairs */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-white">{matchedPairs}/{totalPairs}</div>
+            <div className="text-white/70 text-sm">Pairs Found</div>
+          </div>
         </div>
       </div>
-
-      {/* Pairs */}
-      <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
-        <div className="text-center">
-          <div className="text-2xl font-bold text-white">{matchedPairs}/{totalPairs}</div>
-          <div className="text-white/70 text-sm">Pairs Found</div>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }

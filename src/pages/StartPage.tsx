@@ -58,7 +58,7 @@ export function StartPage({ onStartGame }: StartPageProps) {
               Plant Memory Game
             </h1>
             <p className="text-white/70 text-sm">
-              Match plant pairs, test your memory, and grow your skills! 🌱
+              Match plant pairs and test your memory. 
             </p>
           </div>
 
@@ -98,11 +98,6 @@ export function StartPage({ onStartGame }: StartPageProps) {
                     >
                       <span className="text-base font-bold">{size.rows}×{size.cols}</span>
                       <span className="text-xs opacity-75 mt-1">{size.label.split(' ').slice(-1)[0]}</span>
-                      {isSelected && (
-                        <div className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold w-6 h-6 rounded-full shadow-md flex items-center justify-center">
-                          ✓
-                        </div>
-                      )}
                     </button>
                   );
                 })}
