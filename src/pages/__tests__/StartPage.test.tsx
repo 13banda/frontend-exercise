@@ -46,11 +46,9 @@ describe("StartPage", () => {
         const boardSizeBtn = screen.getByText(/4×4/i);
         fireEvent.click(boardSizeBtn);
 
-        // Select difficulty
         const hardBtn = screen.getByText(/HARD/i);
         fireEvent.click(hardBtn);
 
-        // Submit form
         fireEvent.click(screen.getByRole("button", { name: /Start Game/i }));
 
         expect(mockOnStartGame).toHaveBeenCalledWith(

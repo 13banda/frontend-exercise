@@ -5,60 +5,56 @@ import { GamePage } from './pages/GamePage';
 import { EndPage } from './pages/EndPage';
 import { useGameState } from './hooks/useGameState';
 import { BoardSize } from './types/game';
+import { GameStatus } from './constants/game';
 
 function App() {
-  const { gameState, initializeGame, flipTile, resetGame, clearGame } = useGameState();
+  const { gameState, initializeGame, flipTile, resetGame } = useGameState();
 
   const handleStartGame = (playerName: string, boardSize: BoardSize, difficulty: string) => {
     initializeGame(playerName, boardSize, difficulty);
   };
 
   const handleGameEnd = () => {
-    // Game end logic is handled in the GamePage component
+    // call anything after game end
   };
 
   const handlePlayAgain = () => {
     resetGame();
   };
 
-  const handleNewGame = () => {
-    clearGame();
-  };
-
   return (
     <Router>
       <Routes>
-        <Route 
-          path="/" 
-          element={<StartPage onStartGame={handleStartGame} />} 
+        <Route
+          path="/"
+          element={<StartPage onStartGame={handleStartGame} />}
         />
-        <Route 
-          path="/game" 
+        <Route
+          path="/game"
           element={
             gameState ? (
-              <GamePage 
-                gameState={gameState} 
-                onTileFlip={flipTile} 
-                onGameEnd={handleGameEnd} 
+              <GamePage
+                gameState={gameState}
+                onTileFlip={flipTile}
+                onGameEnd={handleGameEnd}
               />
             ) : (
               <Navigate to="/" replace />
             )
-          } 
+          }
         />
-        <Route 
-          path="/end" 
+        <Route
+          path="/end"
           element={
-            gameState && gameState.gameStatus === 'won' ? (
-              <EndPage 
-                gameState={gameState} 
-                onPlayAgain={handlePlayAgain} 
-                onNewGame={handleNewGame} 
+            gameState && gameState.gameStatus === GameStatus.Won ? (
+              <EndPage
+                gameState={gameState}
+                onPlayAgain={handlePlayAgain}
               />
             ) : (
               <Navigate to="/" replace />
             )
-          } 
+          }
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

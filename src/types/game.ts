@@ -1,3 +1,5 @@
+import { GameStatus } from "../constants/game";
+
 export interface BoardSize {
   rows: number;
   cols: number;
@@ -6,19 +8,19 @@ export interface BoardSize {
 
 export interface GameState {
   board: number[];
-  flippedCards: number[];
-  matchedCards: number[];
+  flippedTiles: number[];
+  matchedPairs: number[];
   moves: number;
   score: number;
   isGameComplete: boolean;
   timeElapsed: number;
-  gameStatus: 'playing' | 'won' | 'lost';
+  gameStatus: GameStatus;
   startTime: number;
   endTime?: number;
   playerName: string;
   boardSize: BoardSize;
   difficulty: string;
-  tiles: number[];
+  tiles: Tile[];
 }
 export interface Tile {
   id: number

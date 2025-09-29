@@ -1,6 +1,7 @@
-import { useState, useCallback, useEffect } from "react";
-import { GameState, BoardSize, Tile } from "../types/game";
+import { useState, useCallback } from "react";
+import { GameState, BoardSize } from "../types/game";
 import { createGameBoard, checkForMatch } from "../utils/gameLogic";
+import { GameStatus } from "../constants/game";
 
 export function useGameState() {
   const [gameState, setGameState] = useState<GameState | null>(null);
@@ -16,7 +17,7 @@ export function useGameState() {
         matchedPairs: [],
         moves: 0,
         startTime: Date.now(),
-        gameStatus: "playing",
+        gameStatus: GameStatus.Playing,
       });
     },
     []
@@ -24,7 +25,7 @@ export function useGameState() {
 
   const flipTile = useCallback(
     (tileId: number) => {
-      if (!gameState || gameState.gameStatus !== "playing") return;
+      if (!gameState || gameState.gameStatus !== GameStatus.Playing) return;
 
       setGameState((prevState) => {
         if (!prevState) return prevState;
@@ -60,7 +61,7 @@ export function useGameState() {
               flippedTiles: [],
               matchedPairs: newMatchedPairs,
               moves: prevState.moves + 1,
-              gameStatus: gameWon ? "won" : "playing",
+              gameStatus: gameWon ? GameStatus.Won : GameStatus.Playing,
               endTime: gameWon ? Date.now() : undefined,
             };
           } else {

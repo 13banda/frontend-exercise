@@ -7,20 +7,18 @@ export const BOARD_SIZES: BoardSize[] = [
   { rows: 6, cols: 6, label: '6x6 (Expert)' }
 ]
 
-export const PLANT_IMAGES = [
-  'plant01.jpg', 'plant02.jpg', 'plant03.jpg', 'plant04.jpg', 'plant05.jpg',
-  'plant06.jpg', 'plant07.jpg', 'plant08.jpg', 'plant09.jpg', 'plant10.jpg',
-  'plant11.jpg', 'plant12.jpg', 'plant13.jpg', 'plant14.jpg', 'plant15.jpg',
-  'plant16.jpg', 'plant17.jpg', 'plant18.jpg'
-]
+export const PLANT_IMAGES = Array.from(
+  { length: 18 },
+  (_, i) => `plant${String(i + 1).padStart(2, "0")}.jpg`
+);
 
 export function createGameBoard(boardSize: BoardSize): Tile[] {
   const totalTiles = boardSize.rows * boardSize.cols
   const pairsNeeded = totalTiles / 2
-  
+
   // Select random plant images for this game
   const selectedImages = PLANT_IMAGES.slice(0, pairsNeeded)
-  
+
   // Create pairs of tiles
   const tiles: Tile[] = []
   selectedImages.forEach((_, imageId) => {
@@ -30,7 +28,7 @@ export function createGameBoard(boardSize: BoardSize): Tile[] {
       { id: tiles.length + 1, imageId, isFlipped: false, isMatched: false }
     )
   })
-  
+
   // Shuffle the tiles
   return shuffleArray(tiles)
 }
@@ -38,8 +36,8 @@ export function createGameBoard(boardSize: BoardSize): Tile[] {
 export function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array]
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
   }
   return shuffled
 }
@@ -52,7 +50,7 @@ export function formatTime(seconds: number): string {
 
 export function checkForMatch(tiles: Tile[], flippedTileIds: number[]): boolean {
   if (flippedTileIds.length !== 2) return false
-  
+
   const [firstTile, secondTile] = flippedTileIds.map(id => tiles.find(tile => tile.id === id)!)
   return firstTile.imageId === secondTile.imageId
 }
