@@ -16,17 +16,6 @@ export function WinModal({ gameStatus }: WinModalProps) {
         <p className="text-white/90 text-lg">
           You matched all the plant pairs!
         </p>
-        <div className="mt-4 flex justify-center space-x-2">
-          <div className="w-2 h-2 bg-white rounded-full animate-bounce" />
-          <div
-            className="w-2 h-2 bg-white rounded-full animate-bounce"
-            style={{ animationDelay: "0.2s" }}
-          />
-          <div
-            className="w-2 h-2 bg-white rounded-full animate-bounce"
-            style={{ animationDelay: "0.4s" }}
-          />
-        </div>
       </div>
     </div>
   );
