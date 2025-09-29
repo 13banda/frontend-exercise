@@ -5,6 +5,8 @@
     "start": "vite",
     "dev": "npm run start",
     "build": "tsc && vite build",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "lint": "eslint src",
