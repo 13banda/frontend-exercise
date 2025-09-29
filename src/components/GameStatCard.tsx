@@ -7,11 +7,13 @@ interface GameStatCardProps {
 
 export const GameStatCard: React.FC<GameStatCardProps> = ({ label, value }) => {
   return (
-    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 flex justify-between items-center border border-white/20">
-      <div className="flex items-center space-x-3">
-        <span className="font-semibold text-white">{label}</span>
-      </div>
-      <span className="text-2xl font-bold text-white">{value}</span>
+    <div className="min-w-[160px] bg-white/10 backdrop-blur-sm rounded-xl p-6 flex flex-col items-center justify-center border border-white/20 shadow-md hover:shadow-lg transition-shadow">
+      <span className="text-3xl font-extrabold text-white mb-1">
+        {value}
+      </span>
+      <span className="text-sm font-medium text-white/70 tracking-wide uppercase">
+        {label}
+      </span>
     </div>
   );
 };

@@ -27,21 +27,10 @@ export function GameStats({ gameState }: GameStatsProps) {
   const timeElapsed = Math.floor((currentTime - gameState.startTime) / 1000);
 
   return (
-    <>
-      <div className='flex flex-wrap justify-center gap-4 mb-8'>
-        {/* Player */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-white">{gameState.playerName}</div>
-            <div className="text-white/70 text-sm">Player</div>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-wrap justify-center gap-4 mb-8">
-        <GameStatCard label="Time" value={formatTime(timeElapsed)} />
-        <GameStatCard label="Moves" value={gameState.moves} />
-        <GameStatCard label="Board Size" value={gameState.boardSize.label.split(" ")[0]} />
-      </div>
-    </>
+    <div className="flex flex-wrap justify-center gap-4 mb-8">
+      <GameStatCard label="Time" value={formatTime(timeElapsed)} />
+      <GameStatCard label="Moves" value={gameState.moves} />
+      <GameStatCard label="Board Size" value={gameState.boardSize.label.split(" ")[0]} />
+    </div>
   );
 }
