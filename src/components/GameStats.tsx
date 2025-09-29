@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { GameState } from '../types/game';
-import { formatTime } from '../utils/gameLogic';
-import { GameStatCard } from './GameStatCard';
-import { GameStatus } from '../constants/game';
+import React, { useState, useEffect } from "react";
+import { GameState } from "../types/game";
+import { formatTime } from "../utils/gameLogic";
+import { GameStatCard } from "./GameStatCard";
+import { GameStatus } from "../constants/game";
 
 interface GameStatsProps {
   gameState: GameState;
@@ -30,7 +30,10 @@ export function GameStats({ gameState }: GameStatsProps) {
     <div className="flex flex-wrap justify-center gap-4 mb-8">
       <GameStatCard label="Time" value={formatTime(timeElapsed)} />
       <GameStatCard label="Moves" value={gameState.moves} />
-      <GameStatCard label="Board Size" value={gameState.boardSize.label.split(" ")[0]} />
+      <GameStatCard
+        label="Pairs Found"
+        value={gameState.matchedPairs.length / 2}
+      />
     </div>
   );
 }

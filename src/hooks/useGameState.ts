@@ -20,7 +20,7 @@ export function useGameState() {
         gameStatus: GameStatus.Playing,
       });
     },
-    []
+    [],
   );
 
   const flipTile = useCallback(
@@ -35,7 +35,7 @@ export function useGameState() {
 
         // Flip the selected tile
         const updatedTiles = prevState.tiles.map((t) =>
-          t.id === tileId ? { ...t, isFlipped: true } : t
+          t.id === tileId ? { ...t, isFlipped: true } : t,
         );
 
         const newFlippedTiles = [...prevState.flippedTiles, tileId];
@@ -46,7 +46,7 @@ export function useGameState() {
 
           if (isMatch) {
             const finalTiles = updatedTiles.map((t) =>
-              newFlippedTiles.includes(t.id) ? { ...t, isMatched: true } : t
+              newFlippedTiles.includes(t.id) ? { ...t, isMatched: true } : t,
             );
 
             const newMatchedPairs = [
@@ -72,7 +72,7 @@ export function useGameState() {
                 const resetTiles = current.tiles.map((t) =>
                   newFlippedTiles.includes(t.id) && !t.isMatched
                     ? { ...t, isFlipped: false }
-                    : t
+                    : t,
                 );
                 return {
                   ...current,
@@ -92,7 +92,7 @@ export function useGameState() {
         };
       });
     },
-    [gameState]
+    [gameState],
   );
 
   const resetGame = useCallback(() => {

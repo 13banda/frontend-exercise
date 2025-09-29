@@ -13,17 +13,19 @@ export function WinModal({ gameStatus }: WinModalProps) {
       <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-8 text-center transform animate-bounce shadow-2xl border border-white/20">
         <div className="text-7xl mb-4">🌱</div>
         <h2 className="text-4xl font-bold text-white mb-3">Garden Master!</h2>
-        <p className="text-white/90 text-lg">You matched all the plant pairs!</p>
+        <p className="text-white/90 text-lg">
+          You matched all the plant pairs!
+        </p>
         <div className="mt-4 flex justify-center space-x-2">
-          <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
+          <div className="w-2 h-2 bg-white rounded-full animate-bounce" />
           <div
             className="w-2 h-2 bg-white rounded-full animate-bounce"
             style={{ animationDelay: "0.2s" }}
-          ></div>
+          />
           <div
             className="w-2 h-2 bg-white rounded-full animate-bounce"
             style={{ animationDelay: "0.4s" }}
-          ></div>
+          />
         </div>
       </div>
     </div>

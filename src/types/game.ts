@@ -19,13 +19,11 @@ export interface GameState {
   endTime?: number;
   playerName: string;
   boardSize: BoardSize;
-  difficulty: string;
   tiles: Tile[];
 }
 export interface Tile {
-  id: number
-  imageId: number
-  isFlipped: boolean
-  isMatched: boolean
+  id: number;
+  imageId: number;
+  isFlipped: boolean;
+  isMatched: boolean;
 }
-export type Difficulty = 'easy' | 'medium' | 'hard';

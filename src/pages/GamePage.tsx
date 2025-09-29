@@ -29,11 +29,11 @@ export function GamePage({ gameState, onTileFlip, onGameEnd }: GamePageProps) {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse" />
         <div
           className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"
           style={{ animationDelay: "2s" }}
-        ></div>
+        />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto p-4 pt-8">
@@ -56,7 +56,6 @@ export function GamePage({ gameState, onTileFlip, onGameEnd }: GamePageProps) {
             <p className="text-white/60">Player</p>
           </div>
         </div>
-
 
         <GameStats gameState={gameState} />
 
