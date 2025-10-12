@@ -9,7 +9,7 @@ interface GameStatsProps {
 
 export function GameStats({ gameState }: GameStatsProps) {
   const elapsedTime = useTimer(gameState.gameStatus === 'playing', gameState.startTime)
-  const displayTime = gameState.endTime 
+  const displayTime = gameState.endTime
     ? Math.floor((gameState.endTime - gameState.startTime) / 1000)
     : elapsedTime
 
@@ -30,7 +30,7 @@ export function GameStats({ gameState }: GameStatsProps) {
           <div className="text-xl font-bold text-blue-700 truncate">{gameState.playerName}</div>
           <div className="text-xs text-blue-600 font-medium">Player</div>
         </div>
-        
+
         <div className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl p-4 text-center border border-emerald-200/50">
           <div className="flex items-center justify-center mb-2">
             <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
@@ -42,7 +42,7 @@ export function GameStats({ gameState }: GameStatsProps) {
           <div className="text-xl font-bold text-emerald-700">{formatTime(displayTime)}</div>
           <div className="text-xs text-emerald-600 font-medium">Time</div>
         </div>
-        
+
         <div className="bg-gradient-to-br from-purple-50 to-violet-100 rounded-xl p-4 text-center border border-purple-200/50">
           <div className="flex items-center justify-center mb-2">
             <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
@@ -54,7 +54,7 @@ export function GameStats({ gameState }: GameStatsProps) {
           <div className="text-xl font-bold text-purple-700">{gameState.moves}</div>
           <div className="text-xs text-purple-600 font-medium">Moves</div>
         </div>
-        
+
         <div className="bg-gradient-to-br from-amber-50 to-orange-100 rounded-xl p-4 text-center border border-amber-200/50">
           <div className="flex items-center justify-center mb-2">
             <div className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center">

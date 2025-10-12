@@ -14,8 +14,7 @@ export function GameBoard({ gameState, onTileFlip }: GameBoardProps) {
   // Calculate optimal tile size and gap based on board dimensions
   const getBoardConfig = () => {
     const totalTiles = boardSize.rows * boardSize.cols
-    const maxDimension = Math.max(boardSize.rows, boardSize.cols)
-    
+
     if (totalTiles <= 4) {
       return { tileSize: 'w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32', gap: 'gap-4', maxWidth: '20rem' }
     } else if (totalTiles <= 12) {
